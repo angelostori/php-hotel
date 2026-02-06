@@ -12,7 +12,7 @@
     </header>
     
     <div class="container mt-4">
-        <div class="row row-cols-5 fw-bold border-bottom pb-2">
+        <div class="row row-cols-5 fw-bold border-bottom pb-2 bg-secondary">
             <div class="col">Nome</div>
             <div class="col">Descrizione</div>
             <div class="col">Parcheggio</div>
@@ -64,7 +64,25 @@
     foreach($hotels as $hotel) {
         echo "<div class='row row-cols-5 border-bottom'>";
         foreach($hotel as $key => $value) {
-            echo "<div class='col'>$value</div>";
+
+            if($key === 'parking') {
+                $value = $value ? "Si" : "No";
+            };
+
+            if($key === 'vote') {
+                $stars = '';
+                for($i = 0; $i < $value; $i++) {
+                    $stars .= '⭐';
+                };
+                $value = $stars;
+            };
+
+            if($key === 'distance_to_center') {
+                $value .= ' Km';
+            };
+
+            echo "<div class='col bg-light'>$value</div>";
+
         };
         echo "</div>";
     };
