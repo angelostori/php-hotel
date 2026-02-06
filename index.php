@@ -18,7 +18,7 @@
                 <label for="parking">Parcheggio interno</label>
             </div>
 
-            <select class="form-select">
+            <select class="form-select" name="vote">
                 <option selected>Voto minimo</option>
                 <option value="1">⭐</option>
                 <option value="2">⭐⭐</option>
@@ -29,6 +29,8 @@
 
             <button type="submit" class="btn btn-sm btn-dark my-3">Cerca</button>
         </form>
+
+        <?php var_dump($_GET) ?>
     </div>
     
     <div class="container mt-4">
