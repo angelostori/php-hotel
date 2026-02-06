@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Hotels</h1>
-
-    <?php
+    <header class="container">
+       <h1>Hotels</h1> 
+    </header>
+    
+    <div class="container mt-4">
+        <div class="row row-cols-5 fw-bold border-bottom pb-2">
+            <div class="col">Nome</div>
+            <div class="col">Descrizione</div>
+            <div class="col">Parcheggio</div>
+            <div class="col">Voto</div>
+            <div class="col">Distanza</div>
+        </div>
+<?php
      $hotels = [
 
         [
@@ -48,6 +59,18 @@
         ],
 
     ];
+
+    
+    foreach($hotels as $hotel) {
+        echo "<div class='row row-cols-5 border-bottom'>";
+        foreach($hotel as $key => $value) {
+            echo "<div class='col'>$value</div>";
+        };
+        echo "</div>";
+    };
     ?>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
