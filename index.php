@@ -30,7 +30,7 @@
             <button type="submit" class="btn btn-sm btn-dark my-3">Cerca</button>
         </form>
 
-        <?php var_dump($_GET) ?>
+        <?php //var_dump($_GET) ?>
     </div>
     
     <div class="container mt-4">
@@ -82,8 +82,30 @@
 
     ];
 
-    
+    # isset() è una funzione che torna true se il valore è settato o false se è null
+    # se $_GET['vote'] è valorizzato assegna il valore parsato in int alla variabile, altrimenti assegna 0
+    $parkingFilter = isset($_GET['parking']);
+    $voteFilter = isset($_GET['vote']) ? (int) $_GET['vote'] : 0;
+
+    $filteredHotels = [];
+
     foreach($hotels as $hotel) {
+        // se voglio il parcheggio ma l'hotel non ce l'ha salto
+        if ($parkingFilter && !$hotel['parking']) {
+            continue;
+        }
+
+        // se il voto è troppo basso salto
+        if ($hotel['vote'] < $voteFilter) {
+            continue;
+        }
+
+        $filteredHotels[] = $hotel;
+    };
+
+    //var_dump($filteredHotels);
+
+    foreach($filteredHotels as $hotel) {
         echo "<div class='row row-cols-5 border-bottom'>";
         foreach($hotel as $key => $value) {
 
