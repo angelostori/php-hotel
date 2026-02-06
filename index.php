@@ -10,9 +10,29 @@
     <header class="container">
        <h1>Hotels</h1> 
     </header>
+
+    <div class="container rounded-top bg-light">
+        <form action="" method="GET">
+            <div class="my-3">
+                <input type="checkbox" name="parking" id="parking">
+                <label for="parking">Parcheggio interno</label>
+            </div>
+
+            <select class="form-select">
+                <option selected>Voto minimo</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+
+            <button type="submit" class="btn btn-sm btn-dark my-3">Cerca</button>
+        </form>
+    </div>
     
     <div class="container mt-4">
-        <div class="row row-cols-5 fw-bold border-bottom pb-2 bg-secondary">
+        <div class="row row-cols-5 fw-bold border-bottom pb-2 bg-secondary rounded-top">
             <div class="col">Nome</div>
             <div class="col">Descrizione</div>
             <div class="col">Parcheggio</div>
